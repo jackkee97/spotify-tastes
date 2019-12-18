@@ -28,6 +28,19 @@ app.get('/example/message', (req, res, next) => {
 	}); 
 }); 
 
+app.post('/cincai/validateRange', (req, res, next) => {
+  if (req.body.minValue <= req.body.maxValue) {
+    res.status(200).json({
+      message:'valid'
+    }); 
+  } else {
+    res.status(401).json({
+      message:'invalid'
+    })
+  }
+
+}); 
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
